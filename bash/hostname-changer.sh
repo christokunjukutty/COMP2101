@@ -33,11 +33,11 @@ read -p "Enter your student number" stdnum
 string="pc"
 newhost=$string${stdnum}
 echo "The new hostname is $newhost"
-if grep -Fxq $newhost /etc/host; then
+if sudo grep -Fxq $newhost /etc/host; then
   echo "The hostname is currently in use"
 else
-  sed -i "s/$hostname/$newhost/" /etc/hosts
+  sudo sed -i "s/$hostname/$newhost/" /etc/hosts
 fi
-hostnamectl set-hostname $newhost
+sudo hostnamectl set-hostname $newhost
 echo "The hostname has been changed to $newhost.
 Please reboot to confirm the changes"
