@@ -17,15 +17,28 @@
 ###############
 # Variables   #
 ###############
-title="Overlord"
-myname="dennis"
-hostname="myhostname"
+
+myname=$USER
+hostname=$(hostname)
+hours=$(date +%H)
+min=$(date +%M)
+meridian=$(date +%p)
+day=$(date +%A)
+
+[ $day == "Monday" ] && title="Lord of Dragons"
+[ $day == "Tuesday" ] && title="Almighty Powerful"
+[ $day == "Wednesday" ] && title="The Greatest Artist Ever"
+[ $day == "Thursday" ] && title="Detective"
+[ $day == "Friday" ] && title="Product Tester"
+[ $day == "Saturday" ] && title="IT Technician"
+[ $day == "Sunday" ] && title="Amazing"
 
 ###############
 # Main        #
 ###############
 cat <<EOF
 
-Welcome to planet $hostname, "$title $myname!"
+Welcome to Planet $hostname, "$title $myname!"
+Today is $day and the time is $hours:$min $meridian.
 
 EOF
